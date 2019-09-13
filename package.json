@@ -1,8 +1,9 @@
 {
   "name": "async-iterator-utils",
   "version": "0.2.0",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/src/index.umd.js",
+  "module": "dist/src/index.modern.js",
+  "types": "dist/src/src/index.d.ts",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^12.7.5",
@@ -12,6 +13,7 @@
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "microbundle": "^0.12.0-next.6",
     "prettier": "^1.18.2",
     "qunit": "^2.9.2",
     "release-it": "^12.3.6",
@@ -19,7 +21,7 @@
     "typescript": "^3.6.3"
   },
   "scripts": {
-    "build": "yarn clean && tsc",
+    "build": "yarn clean && microbundle src/index.ts -f modern,umd --no-compress --tsconfig ./tsconfig.bundle.json",
     "test": "qunit --require ts-node/register 'test/**/*-test.ts'",
     "prepare": "yarn build",
     "clean": "rm -rf ./dist",
