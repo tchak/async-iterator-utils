@@ -25,5 +25,14 @@
     "clean": "rm -rf ./dist",
     "lint": "eslint . --ext .ts",
     "release": "release-it"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "release-it": {
+    "github": {
+      "release": false
+    }
   }
 }
