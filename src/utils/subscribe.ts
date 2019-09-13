@@ -16,7 +16,7 @@ export default function subscribe<T>(
   observer = makeObserver(observer);
   next(iterator, observer);
   return (): void => {
-    iterator.return();
+    iterator.return && iterator.return();
   };
 }
 

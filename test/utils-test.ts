@@ -18,7 +18,7 @@ QUnit.module('callbackToAsyncIterator', function(hooks) {
     for await (const i of iterator) {
       count++;
       if (i === 4) {
-        iterator.return();
+        iterator.return && iterator.return();
       }
     }
     assert.equal(count, 4);
@@ -29,7 +29,7 @@ QUnit.module('callbackToAsyncIterator', function(hooks) {
     for await (const i of iterator) {
       count++;
       if (i === 3) {
-        iterator.return();
+        iterator.return && iterator.return();
       }
     }
     assert.equal(count, 3);
